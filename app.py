@@ -25,7 +25,7 @@ def main():
     if "color_to_label" not in st.session_state:
         st.session_state["color_to_label"] = {}
     PAGES = {
-        "About": about,
+        #"About": about,
         "Basic example": full_app,
         #"Get center coords of circles": center_circle_app,
         #"Color-based image annotation": color_annotation_app,
