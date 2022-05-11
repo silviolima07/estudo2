@@ -81,12 +81,26 @@ def full_app():
         #    for col in objects.select_dtypes(include=["object"]).columns:
         #        objects[col] = objects[col].astype("str")
         #    st.dataframe(objects)
-        
-            img_data = canvas_result.image_data
-            im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")      
-            img_28_28 = im.resize([28,28], Image.Resampling.NEAREST)
+            button_id = st.session_state["button_id"]
+            file_path = f"tmp/{button_id}.png"
+            st.subheader(file_path)
+            
+            file = file_path
+            img = Image.open(file)
+            st.image(img)
+            #img_inverted = invert_color(img)
+            
+            #img = img_inverted
+            #img = img.convert('LA')
+            #st.image(img)
+            file_tensor = convert_tensor(img)
+            #st.write("Imagem na forma de tensor")
+            #st.write(file_tensor)
+            #st.write(modelo.predict(file_tensor))
+            img_28_28 = img.resize([28,28], Image.Resampling.NEAREST)
             st.image(img_28_28)
             img_array = np.array(img_28_28)
+ 
             img_784 = img_array.reshape(-1,28*28)
             img_784 = img_784.astype('float32')
             img_normalizado = img_784/255.0
