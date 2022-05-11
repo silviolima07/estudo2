@@ -123,8 +123,8 @@ def png_export():
         img_data = data.image_data
         im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")
         button_id = st.session_state["button_id"]
+        st.subheader(button_id)
         file_path = f"tmp/{button_id}.png"
-        im.save(file_path, "PNG")
 
         buffered = BytesIO()
         im.save(buffered, format="PNG")
