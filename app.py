@@ -123,7 +123,7 @@ def full_app():
         
             img_data = canvas_result.image_data
             im = Image.fromarray(img_data.astype("uint8"), mode="RGB")      
-            img_28_28 = img.resize([28,28], Image.Resampling.NEAREST)
+            img_28_28 = im.resize([28,28], Image.Resampling.NEAREST)
             st.image(img_28_28)
 
 def center_circle_app():
