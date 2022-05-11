@@ -50,4 +50,4 @@ if __name__ == "__main__":
     )
     st.title("Transfer Learning")
     st.sidebar.subheader("Menu")		
-	main()	
+    main()	
