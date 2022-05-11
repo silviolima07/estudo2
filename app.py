@@ -75,7 +75,7 @@ def full_app():
 
         # Do something interesting with the image data and paths
         
-        #if canvas_result.image_data is not None:
+        if canvas_result.image_data is not None:
         #    st.image(canvas_result.image_data)
         #if canvas_result.json_data is not None:
         #    objects = pd.json_normalize(canvas_result.json_data["objects"])
@@ -83,22 +83,22 @@ def full_app():
         #        objects[col] = objects[col].astype("str")
         #    st.dataframe(objects)
         
-        img_data = canvas_result.image_data
-        im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")      
-        img_28_28 = im.resize([28,28], Image.Resampling.NEAREST)
-        st.image(img_28_28)
-        img_array = np.array(img_28_28)
-        img_784 = img_array.reshape(-1,28*28)
-        img_784 = img_784.astype('float32')
-        img_normalizado = img_784/255.0
+            img_data = canvas_result.image_data
+            im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")      
+            img_28_28 = im.resize([28,28], Image.Resampling.NEAREST)
+            st.image(img_28_28)
+            img_array = np.array(img_28_28)
+            img_784 = img_array.reshape(-1,28*28)
+            img_784 = img_784.astype('float32')
+            img_normalizado = img_784/255.0
             
-        if st.button("Prever")and canvas_result.image_data is not None:
-            
-            st.title("Previsão")
+            if st.button("Prever")and canvas_result.image_data is not None:
+             
+                st.title("Previsão")
                  
-            pred = modelo_keras.predict(img_normalizado)
-            st.write(pred)
-            st.title(pred.argmax())
+                pred = modelo_keras.predict(img_normalizado)
+                st.write(pred)
+                st.title(pred.argmax())
 
 
 
