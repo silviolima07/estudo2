@@ -125,6 +125,17 @@ def full_app():
             im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")      
             img_28_28 = im.resize([28,28], Image.Resampling.NEAREST)
             st.image(img_28_28)
+            img_array = np.array(img_28_28)
+            img_784 = img_array.reshape(-1,28*28)
+            img_784 = img_784.astype('float32')
+            img_normalizado = img_784/255.0
+            
+        
+            st.title("Previsão")
+                 
+            pred = modelo_keras.predict(img_normalizado)
+            st.write(pred)
+            st.title(pred.argmax())
 
 def center_circle_app():
     st.markdown(
