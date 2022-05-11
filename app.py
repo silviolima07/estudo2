@@ -22,7 +22,7 @@ def main():
         st.session_state["color_to_label"] = {}
     PAGES = {
         "About": about,
-        #"Basic example": full_app,
+        "Basic example": full_app,
         #"Get center coords of circles": center_circle_app,
         #"Color-based image annotation": color_annotation_app,
         #"Download Base64 encoded PNG": png_export,
