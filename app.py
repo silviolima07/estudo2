@@ -21,52 +21,53 @@ def main():
     if "color_to_label" not in st.session_state:
         st.session_state["color_to_label"] = {}
     PAGES = {
-        "About": about,
-        "Basic example": full_app,
-        "Get center coords of circles": center_circle_app,
-        "Color-based image annotation": color_annotation_app,
-        "Download Base64 encoded PNG": png_export,
-        "Compute the length of drawn arcs": compute_arc_length,
+        #"About": about,
+        #"Basic example": full_app,
+        #"Get center coords of circles": center_circle_app,
+        #"Color-based image annotation": color_annotation_app,
+        #"Download Base64 encoded PNG": png_export,
+        #"Compute the length of drawn arcs": compute_arc_length,
+        "Draw numbers from 0 to 9": png_export,
     }
     page = st.sidebar.selectbox("Page:", options=list(PAGES.keys()))
     PAGES[page]()
 
-    with st.sidebar:
-        st.markdown("---")
-        st.markdown(
-            '<h6>Made in &nbsp<img src="https://streamlit.io/images/brand/streamlit-mark-color.png" alt="Streamlit logo" height="16">&nbsp by <a href="https://twitter.com/andfanilo">@andfanilo</a></h6>',
-            unsafe_allow_html=True,
-        )
-        st.markdown(
-            '<div style="margin: 0.75em 0;"><a href="https://www.buymeacoffee.com/andfanilo" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a></div>',
-            unsafe_allow_html=True,
-        )
+    #with st.sidebar:
+    #    st.markdown("---")
+    #    st.markdown(
+    #        '<h6>Made in &nbsp<img src="https://streamlit.io/images/brand/streamlit-mark-color.png" alt="Streamlit logo" height="16">&nbsp by <a href="https://twitter.com/andfanilo">@andfanilo</a></h6>',
+    #        unsafe_allow_html=True,
+    #    )
+    #    st.markdown(
+    #        '<div style="margin: 0.75em 0;"><a href="https://www.buymeacoffee.com/andfanilo" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a></div>',
+    #        unsafe_allow_html=True,
+    #    )
 
 
 def about():
-    st.markdown(
-        """
-    Welcome to the demo of [Streamlit Drawable Canvas](https://github.com/andfanilo/streamlit-drawable-canvas).
-    
-    On this site, you will find a full use case for this Streamlit component, and answers to some frequently asked questions.
-    
-    :pencil: [Demo source code](https://github.com/andfanilo/streamlit-drawable-canvas-demo/)    
-    """
-    )
-    st.image("img/demo.gif")
-    st.markdown(
-        """
-    What you can do with Drawable Canvas:
-
-    * Draw freely, lines, circles and boxes on the canvas, with options on stroke & fill
-    * Rotate, skew, scale, move any object of the canvas on demand
-    * Select a background color or image to draw on
-    * Get image data and every drawn object properties back to Streamlit !
-    * Choose to fetch back data in realtime or on demand with a button
-    * Undo, Redo or Drop canvas
-    * Save canvas data as JSON to reuse for another session
-    """
-    )
+    #st.markdown(
+    #    """
+    #Welcome to the demo of [Streamlit Drawable Canvas](https://github.com/andfanilo/streamlit-drawable-canvas).
+    #
+    #On this site, you will find a full use case for this Streamlit component, and answers to some frequently asked questions.
+    #
+    #:pencil: [Demo source code](https://github.com/andfanilo/streamlit-drawable-canvas-demo/)    
+    #"""
+    #)
+    #st.image("img/demo.gif")
+    #st.markdown(
+    #    """
+    #What you can do with Drawable Canvas:
+    #
+    #* Draw freely, lines, circles and boxes on the canvas, with options on stroke & fill
+    #* Rotate, skew, scale, move any object of the canvas on demand
+    #* Select a background color or image to draw on
+    #* Get image data and every drawn object properties back to Streamlit !
+    #* Choose to fetch back data in realtime or on demand with a button
+    #* Undo, Redo or Drop canvas
+    #* Save canvas data as JSON to reuse for another session
+    #"""
+    #)
 
 
 def full_app():
@@ -93,7 +94,7 @@ def full_app():
             
         stroke_color = "rgba(255,255,255)"#st.sidebar.color_picker("Stroke color hex: ")
         bg_color = "rgba(0,0,0)"#st.sidebar.color_picker("Background color hex: ", "#eee")
-        bg_image =  'png' #st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
+        bg_image =  st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
         realtime_update = st.sidebar.checkbox("Update in realtime", True)
 
         # Create a canvas component
