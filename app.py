@@ -15,6 +15,9 @@ from streamlit_drawable_canvas import st_canvas
 from svgpathtools import parse_path
 from tensorflow import keras
 
+
+modelo_keras = keras.models.load_model('./modelo_keras.h5')
+
 def main():
     if "button_id" not in st.session_state:
         st.session_state["button_id"] = ""
@@ -125,10 +128,10 @@ def full_app():
             im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")      
             img_28_28 = im.resize([28,28], Image.Resampling.NEAREST)
             st.image(img_28_28)
-            img_array = np.array(img_28_28)
-            img_784 = img_array.reshape(-1,28*28)
-            img_784 = img_784.astype('float32')
-            img_normalizado = img_784/255.0
+            #img_array = np.array(img_28_28)
+            #img_784 = img_array.reshape(-1,28*28)
+            #img_784 = img_784.astype('float32')
+            #img_normalizado = img_784/255.0
             
         
             #st.title("Previsão")
@@ -345,8 +348,8 @@ if __name__ == "__main__":
     )
     st.title("Drawable Canvas Demo")
     st.sidebar.subheader("Configuration")
-    modelo_keras = keras.models.load_model('./modelo_keras.h5')
     
-    mnist_keras = keras.models.load_model('./mnist_keras.h5')
+    
+    #mnist_keras = keras.models.load_model('./mnist_keras.h5')
     
     main()
