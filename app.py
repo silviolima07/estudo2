@@ -117,7 +117,7 @@ def png_export():
         im.save(buffered, format="PNG")
         img_data = buffered.getvalue()
         
-        if st.button("Prever")and canvas_result.image_data is not None:
+        if st.button("Prever")and data is not None:
              
                 st.title("Previsão")
                  
