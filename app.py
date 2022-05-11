@@ -92,8 +92,8 @@ def full_app():
         if drawing_mode == 'point':
             point_display_radius = st.sidebar.slider("Point display radius: ", 1, 25, 3)
             
-        stroke_color = st.sidebar.color_picker("Stroke color hex: ")
-        bg_color = st.sidebar.color_picker("Background color hex: ", "#eee")
+        stroke_color = "rgba(255, 255, 255)"
+        bg_color = "rgba(0, 0, 0, 0.3)"
         bg_image =  st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
         realtime_update = st.sidebar.checkbox("Update in realtime", True)
 
