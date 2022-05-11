@@ -250,8 +250,8 @@ def png_export():
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                background-color: rgb(255, 255, 255);
-                color: rgb(38, 39, 48);
+                background-color: rgb(0,0,0);
+                color: rgb(255,255,255);
                 padding: .25rem .75rem;
                 position: relative;
                 text-decoration: none;
