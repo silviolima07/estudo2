@@ -134,12 +134,13 @@ def full_app():
             #img_784 = img_784.astype('float32')
             #img_normalizado = img_784/255.0
             
-        
-            #st.title("Previsão")
+            if st.button("Prever")and data is not None and data.image_data is not None:
+            
+                st.title("Previsão")
                  
-            #pred = modelo_keras.predict(img_normalizado)
-            #st.write(pred)
-            #st.title(pred.argmax())
+                pred = modelo_keras.predict(img_normalizado)
+                st.write(pred)
+                st.title(pred.argmax())
 
 def center_circle_app():
     st.markdown(
