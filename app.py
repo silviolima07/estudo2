@@ -122,7 +122,7 @@ def full_app():
             st.dataframe(objects)
         
             img_data = canvas_result.image_data
-            im = Image.fromarray(img_data.astype("uint8"), mode="RGB")      
+            im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")      
             img_28_28 = im.resize([280,280], Image.Resampling.NEAREST)
             st.image(img_28_28)
 
