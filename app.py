@@ -93,7 +93,7 @@ def full_app():
             point_display_radius = st.sidebar.slider("Point display radius: ", 1, 25, 3)
             
         stroke_color = "rgba(255, 255, 255)"
-        bg_color = "rgba(0, 0, 0, 0.3)"
+        bg_color = "rgba(0, 0, 0)"
         bg_image =  st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
         realtime_update = st.sidebar.checkbox("Update in realtime", True)
 
@@ -105,7 +105,7 @@ def full_app():
             background_color=bg_color,
             background_image=Image.open(bg_image) if bg_image else None,
             update_streamlit=realtime_update,
-            height=500,
+            height=600,
             drawing_mode=drawing_mode,
             point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
             display_toolbar=st.sidebar.checkbox("Display toolbar", True),
@@ -123,7 +123,7 @@ def full_app():
         
             img_data = canvas_result.image_data
             im = Image.fromarray(img_data.astype("uint8"), mode="RGB")      
-            img_28_28 = im.resize([28,28], Image.Resampling.NEAREST)
+            img_28_28 = im.resize([280,280], Image.Resampling.NEAREST)
             st.image(img_28_28)
 
 def center_circle_app():
