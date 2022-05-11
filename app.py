@@ -345,4 +345,8 @@ if __name__ == "__main__":
     )
     st.title("Drawable Canvas Demo")
     st.sidebar.subheader("Configuration")
+    modelo_keras = keras.models.load_model('./modelo_keras.h5')
+    
+    mnist_keras = keras.models.load_model('./mnist_keras.h5')
+    
     main()
