@@ -131,11 +131,11 @@ def full_app():
             img_normalizado = img_784/255.0
             
         
-            st.title("Previsão")
+            #st.title("Previsão")
                  
-            pred = modelo_keras.predict(img_normalizado)
-            st.write(pred)
-            st.title(pred.argmax())
+            #pred = modelo_keras.predict(img_normalizado)
+            #st.write(pred)
+            #st.title(pred.argmax())
 
 def center_circle_app():
     st.markdown(
