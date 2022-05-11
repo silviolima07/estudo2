@@ -68,6 +68,7 @@ def about():
     #* Save canvas data as JSON to reuse for another session
     #"""
     #)
+    st.title("Bem vindo")
 
 
 def full_app():
