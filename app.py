@@ -16,7 +16,6 @@ from streamlit_drawable_canvas import st_canvas
 
 from tensorflow import keras
 
-
 modelo_keras = keras.models.load_model('./modelo_keras.h5')
 
 def main():
